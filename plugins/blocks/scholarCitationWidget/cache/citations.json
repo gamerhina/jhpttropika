@@ -1,0 +1,23 @@
+{
+    "profile": {
+        "name": "Jurnal Hama dan Penyakit Tumbuhan Tropika",
+        "scholarId": "zCyDRywAAAAJ",
+        "url": "https://scholar.google.com/citations?user=zCyDRywAAAAJ&hl=en"
+    },
+    "metrics": {
+        "citations": 1258,
+        "hindex": 19,
+        "i10index": 31
+    },
+    "chart": [
+        {"year": 2020, "citations": 124},
+        {"year": 2021, "citations": 145},
+        {"year": 2022, "citations": 198},
+        {"year": 2023, "citations": 230},
+        {"year": 2024, "citations": 288},
+        {"year": 2025, "citations": 210},
+        {"year": 2026, "citations": 63}
+    ],
+    "updated": "2026-07-21 12:00:00",
+    "generator": "ScholarUpdater"
+}

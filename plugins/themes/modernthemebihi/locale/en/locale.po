@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-18T19:18:25+00:00\n"
+"PO-Revision-Date: 2020-02-18T19:18:25+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.modernthemebihi.name"
+msgstr "Theme by Bihikmi"
+
+msgid "plugins.themes.modernthemebihi.description"
+msgstr "Theme by Bihikmi for the reader frontend. Version 1.0.0"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.label"
+msgstr "Quick jump to page content"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.main_navigation"
+msgstr "Main Navigation"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.main_content"
+msgstr "Main Content"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.sidebar"
+msgstr "Sidebar"
+
+msgid "plugins.themes.modernthemebihi.article.sidebar"
+msgstr "Article Sidebar"
+
+msgid "plugins.themes.modernthemebihi.article.main"
+msgstr "Main Article Content"
+
+msgid "plugins.themes.modernthemebihi.article.details"
+msgstr "Article Details"
+
+msgid "navigation.about"
+msgstr "About"
+
+msgid "navigation.current"
+msgstr "Current"
+
+msgid "navigation.archives"
+msgstr "Archives"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Home"
+
+msgid "archive.archives"
+msgstr "Archives"
+
+msgid "issue.vol"
+msgstr "Vol."
+
+msgid "issue.no"
+msgstr "No."
+
+msgid "navigation.register"
+msgstr "Register"
+
+msgid "navigation.login"
+msgstr "Login"
+
+msgid "plugins.themes.modernthemebihi.options.modernthemebihiTheme.label"
+msgstr "Theme by Bihikmi"
+
+msgid "plugins.themes.modernthemebihi.options.modernthemebihiTheme.description"
+msgstr "Theme by Bihikmi Description"
+
+msgid "plugins.themes.modernthemebihi.options.modernthemebihiTheme.default"
+msgstr "Default"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.label"
+msgstr "Accessible Menu"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_navigation"
+msgstr "Main Navigation"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_content"
+msgstr "Main Content"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.sidebar"
+msgstr "Sidebar"
+
+msgid "plugins.themes.modernthemebihi.options.baseColor.label"
+msgstr "Base Website Color"
+
+msgid "plugins.themes.modernthemebihi.options.baseColor.description"
+msgstr "Choose the primary color for your theme (e.g., for buttons, footer backgrounds)."
+
+msgid "plugins.themes.modernthemebihi.options.editorialFooter.label"
+msgstr "Editorial Office Footer"
+
+msgid "plugins.themes.modernthemebihi.options.editorialFooter.description"
+msgstr "Text or HTML for the editorial office information displayed in the footer."
+
+
+msgid "plugins.themes.modernthemebihi.options.sliderTransition.label"
+msgstr "Slider Animation Style"
+
+msgid "plugins.themes.modernthemebihi.options.sliderTransition.description"
+msgstr "Choose the slider animation style (Loop or Fade)."
+
+msgid "plugins.themes.modernthemebihi.options.sliderDuration.label"
+msgstr "Slider Duration (Milliseconds)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderDuration.description"
+msgstr "How long each slide is displayed (e.g., 2500 for 2.5 seconds)."
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage1.label"
+msgstr "Manual Slider Image 1 (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage1.description"
+msgstr "Enter an image URL to replace the automatic article slider."
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage2.label"
+msgstr "Manual Slider Image 2 (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage2.description"
+msgstr "Second manual slider image URL."
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage3.label"
+msgstr "Manual Slider Image 3 (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage3.description"
+msgstr "Third manual slider image URL."
+
+msgid "plugins.themes.modernthemebihi.options.mainBgImage.label"
+msgstr "Main Content Background Image"
+
+msgid "plugins.themes.modernthemebihi.options.mainBgImage.description"
+msgstr "Enter a background image URL for the main body area."
+
+msgid "plugins.themes.modernthemebihi.options.headerBgImage.label"
+msgstr "Header Background Image"
+
+msgid "plugins.themes.modernthemebihi.options.headerBgImage.description"
+msgstr "Enter a background image URL for the header/top navbar."
+
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption1.label"
+msgstr "Slider 1 Image Caption/Text"
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption1.description"
+msgstr "Text to overlay on the first slider image."
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink1.label"
+msgstr "Slider 1 Image Link (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink1.description"
+msgstr "URL to redirect when the first image is clicked."
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption2.label"
+msgstr "Slider 2 Image Caption/Text"
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption2.description"
+msgstr "Text to overlay on the second slider image."
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink2.label"
+msgstr "Slider 2 Image Link (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink2.description"
+msgstr "URL to redirect when the second image is clicked."
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption3.label"
+msgstr "Slider 3 Image Caption/Text"
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption3.description"
+msgstr "Text to overlay on the third slider image."
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink3.label"
+msgstr "Slider 3 Image Link (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink3.description"
+msgstr "URL to redirect when the third image is clicked."
+
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Scholar Citations</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .chart-container {
+            width: 100%;
+            max-width: 250px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container">
+        <canvas id="scholarChart"></canvas>
+    </div>
+
+    <script>
+        // =========================================================
+        // PENGATURAN DATA SITASI (GANTI ANGKA DI SINI SETIAP BULAN)
+        // =========================================================
+        
+        const tahun = ['2019', '2020', '2021', '2022', '2023', '2024'];
+        
+        const jumlahSitasi = [15, 32, 54, 88, 120, 155];
+
+        // =========================================================
+
+        const ctx = document.getElementById('scholarChart').getContext('2d');
+        const scholarChart = new Chart(ctx, {
+            type: 'line', // Ganti menjadi 'bar' jika ingin diagram batang
+            data: {
+                labels: tahun,
+                datasets: [{
+                    label: 'Sitasi',
+                    data: jumlahSitasi,
+                    backgroundColor: 'rgba(1, 68, 1, 0.15)', // Warna hijau transparan
+                    borderColor: 'rgba(1, 68, 1, 1)', // Warna hijau pekat
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(1, 68, 1, 1)',
+                    pointBorderColor: '#ffffff',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    tension: 0.4, // Membuat garis menjadi melengkung mulus (smooth)
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false // Disembunyikan agar hemat tempat
+                    },
+                    title: {
+                        display: true,
+                        text: 'Google Scholar Citations',
+                        font: { size: 12, weight: 'bold' },
+                        color: '#333',
+                        padding: { top: 0, bottom: 10 }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 11 },
+                        padding: 8,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { 
+                            precision: 0, 
+                            font: { size: 10 },
+                            color: '#666'
+                        },
+                        grid: { color: '#f0f0f0' },
+                        border: { display: false }
+                    },
+                    x: {
+                        ticks: { 
+                            font: { size: 10 },
+                            color: '#666'
+                        },
+                        grid: { display: false },
+                        border: { display: false }
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

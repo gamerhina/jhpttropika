@@ -1,0 +1,12 @@
+<?php $exp = 1816687834; $val = array (
+  'domain' => NULL,
+  'plural-forms' => NULL,
+  'messages' => 
+  array (
+    '' => 
+    array (
+      'plugins.metadata.dc11.displayName' => 'Dublin Core 1.1 meta-data',
+      'plugins.metadata.dc11.description' => 'Contributes Dublin Core version 1.1 schemas and application adapters.',
+    ),
+  ),
+);

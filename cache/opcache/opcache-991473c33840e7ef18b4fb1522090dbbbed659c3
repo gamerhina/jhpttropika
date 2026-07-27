@@ -1,0 +1,29 @@
+<?php $exp = 1816687831; $val = array (
+  'domain' => NULL,
+  'plural-forms' => NULL,
+  'messages' => 
+  array (
+    '' => 
+    array (
+      'plugins.block.scholarCitationWidget.displayName' => 'Scholar Citation Widget',
+      'plugins.block.scholarCitationWidget.description' => 'Displays Google Scholar citation metrics and a citation trend graph on your journal\'s sidebar using locally cached data.',
+      'plugins.block.scholarCitationWidget.settings' => 'Scholar Citation Widget Settings',
+      'plugins.block.scholarCitationWidget.settings.scholarId' => 'Google Scholar ID',
+      'plugins.block.scholarCitationWidget.settings.scholarIdRequired' => 'Google Scholar ID is required.',
+      'plugins.block.scholarCitationWidget.settings.sidebarTitle' => 'Sidebar Title',
+      'plugins.block.scholarCitationWidget.settings.cacheHours' => 'Cache Lifetime (Hours)',
+      'plugins.block.scholarCitationWidget.settings.jsonFileLocation' => 'Custom JSON File Location (Optional)',
+      'plugins.block.scholarCitationWidget.settings.jsonFileLocationDesc' => 'Relative or absolute path to citations.json (leave empty to use default plugin cache).',
+      'plugins.block.scholarCitationWidget.settings.themeColor' => 'Widget Highlight Color (Hex)',
+      'plugins.block.scholarCitationWidget.settings.showButton' => 'Show Google Scholar Button',
+      'plugins.block.scholarCitationWidget.settings.showGraph' => 'Show Citation History Graph',
+      'plugins.block.scholarCitationWidget.error.noData' => 'No citation data available.',
+      'plugins.block.scholarCitationWidget.error.invalidJson' => 'Invalid citation file.',
+      'plugins.block.scholarCitationWidget.citations' => 'Citations',
+      'plugins.block.scholarCitationWidget.hIndex' => 'h-index',
+      'plugins.block.scholarCitationWidget.i10Index' => 'i10-index',
+      'plugins.block.scholarCitationWidget.updated' => 'Updated',
+      'plugins.block.scholarCitationWidget.viewProfile' => 'View Google Scholar Profile',
+    ),
+  ),
+);

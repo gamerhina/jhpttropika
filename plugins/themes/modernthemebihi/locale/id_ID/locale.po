@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-18T19:18:25+00:00\n"
+"PO-Revision-Date: 2020-02-18T19:18:25+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.modernthemebihi.name"
+msgstr "Theme by Bihikmi"
+
+msgid "plugins.themes.modernthemebihi.description"
+msgstr "Theme by Bihikmi untuk pembaca frontend. Versi 1.0.0"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.label"
+msgstr "Quick jump to page content"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.main_navigation"
+msgstr "Main Navigation"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.main_content"
+msgstr "Main Content"
+
+msgid "plugins.themes.modernthemebihi.accessible_menu.sidebar"
+msgstr "Sidebar"
+
+msgid "plugins.themes.modernthemebihi.article.sidebar"
+msgstr "Article Sidebar"
+
+msgid "plugins.themes.modernthemebihi.article.main"
+msgstr "Main Article Content"
+
+msgid "plugins.themes.modernthemebihi.article.details"
+msgstr "Article Details"
+
+msgid "navigation.about"
+msgstr "Tentang"
+
+msgid "navigation.current"
+msgstr "Terkini"
+
+msgid "navigation.archives"
+msgstr "Arsip"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Beranda"
+
+msgid "archive.archives"
+msgstr "Arsip"
+
+msgid "issue.vol"
+msgstr "Vol."
+
+msgid "issue.no"
+msgstr "No."
+
+msgid "navigation.register"
+msgstr "Daftar"
+
+msgid "navigation.login"
+msgstr "Masuk"
+
+msgid "plugins.themes.modernthemebihi.options.modernthemebihiTheme.label"
+msgstr "Theme by Bihikmi"
+
+msgid "plugins.themes.modernthemebihi.options.modernthemebihiTheme.description"
+msgstr "Deskripsi Theme by Bihikmi"
+
+msgid "plugins.themes.modernthemebihi.options.modernthemebihiTheme.default"
+msgstr "Bawaan"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.label"
+msgstr "Menu Aksesibel"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_navigation"
+msgstr "Navigasi Utama"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_content"
+msgstr "Konten Utama"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.sidebar"
+msgstr "Bilah Sisi"
+
+msgid "plugins.themes.modernthemebihi.options.baseColor.label"
+msgstr "Warna Utama Website"
+
+msgid "plugins.themes.modernthemebihi.options.baseColor.description"
+msgstr "Pilih warna utama untuk tema jurnal Anda (contoh: untuk tombol, latar belakang header/footer)."
+
+msgid "plugins.themes.modernthemebihi.options.editorialFooter.label"
+msgstr "Editorial Office Footer"
+
+msgid "plugins.themes.modernthemebihi.options.editorialFooter.description"
+msgstr "Teks alamat atau informasi editorial yang akan ditampilkan pada bagian footer website."
+
+
+msgid "plugins.themes.modernthemebihi.options.sliderTransition.label"
+msgstr "Gaya Animasi Slider"
+
+msgid "plugins.themes.modernthemebihi.options.sliderTransition.description"
+msgstr "Pilih animasi perpindahan gambar slider (Loop = bergeser, Fade = memudar)."
+
+msgid "plugins.themes.modernthemebihi.options.sliderDuration.label"
+msgstr "Durasi Slider (Milidetik)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderDuration.description"
+msgstr "Lama waktu sebuah gambar tampil sebelum berganti (contoh: 2500 untuk 2.5 detik)."
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage1.label"
+msgstr "Gambar Slider Manual 1 (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage1.description"
+msgstr "Masukkan link gambar jika Anda ingin mengganti slider artikel otomatis dengan gambar manual."
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage2.label"
+msgstr "Gambar Slider Manual 2 (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage2.description"
+msgstr "Tautan gambar slider kedua."
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage3.label"
+msgstr "Gambar Slider Manual 3 (URL)"
+
+msgid "plugins.themes.modernthemebihi.options.sliderImage3.description"
+msgstr "Tautan gambar slider ketiga."
+
+msgid "plugins.themes.modernthemebihi.options.mainBgImage.label"
+msgstr "Gambar Latar (Background) Konten Utama"
+
+msgid "plugins.themes.modernthemebihi.options.mainBgImage.description"
+msgstr "Masukkan link gambar latar belakang untuk area badan halaman."
+
+msgid "plugins.themes.modernthemebihi.options.headerBgImage.label"
+msgstr "Gambar Latar (Background) Header"
+
+msgid "plugins.themes.modernthemebihi.options.headerBgImage.description"
+msgstr "Masukkan link gambar latar belakang untuk area Header/Menu atas."
+
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption1.label"
+msgstr "Teks/Caption Gambar Slider 1"
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption1.description"
+msgstr "Teks yang akan muncul melayang di atas gambar slider pertama."
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink1.label"
+msgstr "Link/Tautan URL Gambar Slider 1"
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink1.description"
+msgstr "Masukkan URL jika Anda ingin pengunjung dialihkan saat mengklik gambar pertama."
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption2.label"
+msgstr "Teks/Caption Gambar Slider 2"
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption2.description"
+msgstr "Teks yang akan muncul melayang di atas gambar slider kedua."
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink2.label"
+msgstr "Link/Tautan URL Gambar Slider 2"
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink2.description"
+msgstr "Tautan URL untuk gambar kedua."
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption3.label"
+msgstr "Teks/Caption Gambar Slider 3"
+
+msgid "plugins.themes.modernthemebihi.options.sliderCaption3.description"
+msgstr "Teks yang akan muncul melayang di atas gambar slider ketiga."
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink3.label"
+msgstr "Link/Tautan URL Gambar Slider 3"
+
+msgid "plugins.themes.modernthemebihi.options.sliderLink3.description"
+msgstr "Tautan URL untuk gambar ketiga."
+
+

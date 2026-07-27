@@ -1,0 +1,9 @@
+<?php $exp = 1816694206; $val = array (
+  'application' => 'urn',
+  'class' => 'URNPubIdPlugin',
+  'type' => 'plugins.pubIds',
+  'release' => '1.0.0.0',
+  'date' => '2016-05-16',
+  'lazy-load' => 1,
+  'sitewide' => 0,
+);

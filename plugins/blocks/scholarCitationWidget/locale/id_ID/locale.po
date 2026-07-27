@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.block.scholarCitationWidget.displayName"
+msgstr "Scholar Citation Widget"
+
+msgid "plugins.block.scholarCitationWidget.description"
+msgstr "Menampilkan metrik kutipan Google Scholar dan grafik tren kutipan di sidebar jurnal Anda menggunakan data lokal yang disimpan di cache."
+
+msgid "plugins.block.scholarCitationWidget.settings"
+msgstr "Pengaturan Scholar Citation Widget"
+
+msgid "plugins.block.scholarCitationWidget.settings.scholarId"
+msgstr "Google Scholar ID"
+
+msgid "plugins.block.scholarCitationWidget.settings.scholarIdRequired"
+msgstr "Google Scholar ID wajib diisi."
+
+msgid "plugins.block.scholarCitationWidget.settings.sidebarTitle"
+msgstr "Judul Sidebar"
+
+msgid "plugins.block.scholarCitationWidget.settings.cacheHours"
+msgstr "Waktu Cache (Jam)"
+
+msgid "plugins.block.scholarCitationWidget.settings.jsonFileLocation"
+msgstr "Lokasi File JSON Kustom (Opsional)"
+
+msgid "plugins.block.scholarCitationWidget.settings.jsonFileLocationDesc"
+msgstr "Path relatif atau absolut ke citations.json (biarkan kosong untuk menggunakan cache plugin bawaan)."
+
+msgid "plugins.block.scholarCitationWidget.settings.themeColor"
+msgstr "Warna Sorotan Widget (Hex)"
+
+msgid "plugins.block.scholarCitationWidget.settings.showButton"
+msgstr "Tampilkan Tombol Google Scholar"
+
+msgid "plugins.block.scholarCitationWidget.settings.showGraph"
+msgstr "Tampilkan Grafik Riwayat Kutipan"
+
+msgid "plugins.block.scholarCitationWidget.error.noData"
+msgstr "Data kutipan tidak tersedia."
+
+msgid "plugins.block.scholarCitationWidget.error.invalidJson"
+msgstr "File kutipan tidak valid."
+
+msgid "plugins.block.scholarCitationWidget.citations"
+msgstr "Kutipan"
+
+msgid "plugins.block.scholarCitationWidget.hIndex"
+msgstr "h-index"
+
+msgid "plugins.block.scholarCitationWidget.i10Index"
+msgstr "i10-index"
+
+msgid "plugins.block.scholarCitationWidget.updated"
+msgstr "Diperbarui"
+
+msgid "plugins.block.scholarCitationWidget.viewProfile"
+msgstr "Lihat Profil Google Scholar"

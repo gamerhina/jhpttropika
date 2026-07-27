@@ -1,0 +1,149 @@
+.pkp_site_name .is_img img {
+    display: inline-block;
+    max-height: none;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.pkp_site_nav_menu{
+    text-align: center;
+}
+
+.pkp_site_name_wrapper, .pkp_navigation_primary_row {
+	padding-left: 10px
+	padding-right: 10px;
+}
+/*.obj_article_details, .abstract {
+	text-align: justify;
+	font:tahoma,geneva,san-serif;
+}*/
+.pkp_brand_footer {
+ display: none;
+}
+
+/*START HOVER*/
+
+.button {
+  font: tahoma,geneva,san-serif;
+  display: inline-block;
+  padding: 0.5em;margin: auto;
+/*   border-radius: 5px; */
+  text-decoration: none;
+  color: green;
+  
+  /* Set up the hover */
+  /* If you aren't using autoprefix, remember to prefix the gradient for other browsers */
+  background-image: linear-gradient(#014401, #014401);
+  background-size: 0 5px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all .2s ease-out;
+}
+
+.button:hover {
+  /* The following line makes the underline only as wide as the text */
+  /* background-size: calc(100% - 2em) 5px, auto; */
+  background-size: 100% 5px, auto;
+}
+/*END HOVER*/
+
+.editorial-list{
+    position: relative; 
+}
+.editorial-list li{
+    margin-bottom: 1.125rem;
+}
+.editorial-list .img-profile{
+    position: absolute;
+    width: 95px;
+    height: 105px;
+    border: 1px solid #ddd;
+    padding: .5rem;
+}
+.editorial-list .img-profile .imgthumb{ 
+    width: 80px;
+    height: 90px;
+    overflow: hidden;
+    margin: 0 auto; 
+    object-fit: fill;
+}
+.editorial-list .img-profile img{
+    width: 100%;
+  height:100%;
+}
+.team-content{
+    margin-left: 100px;
+    min-height: 130px;
+}
+.team-content .ico-label{
+    width: 18px;
+    height: 18px;
+    margin-right: .5rem;
+} 
+.team-aff ul li{
+    margin-bottom: 0;
+}
+.team-aff ul li .tm_label{
+    display: inline-block;
+    width: 80px;
+}
+
+.team-aff ul li .ico-label{
+    width: 18px;
+    height: 18px;
+    margin-right: .5rem;
+}
+
+/*.pkp_structure_head{
+    height: 14.8em;
+}*/
+
+/*.pkp_structure_content{
+margin-top: 3.5em;
+}*/
+
+/*design table 1*/
+/* Pengaturan border-collapse jenis,ukuran serta warna huruf secara keseluruhan tabel */
+.table1{
+    border-collapse:collapse;
+    font:normal normal 12px Verdana,Arial,Sans-Serif;
+    color:#333333;
+}
+/* Mengatur warna latar, warna teks, ukruan font dan jenis bold (tebal) pada header tabel */
+.table1 th {
+    background:#00BFFF;
+    color:#DCDCDC;
+    font-weight:bold;
+    font-size:14px;
+}
+/* Mengatur border dan jarak/ruang pada kolom */
+.table1 th,
+.table1 td {
+    vertical-align:top;
+    padding:5px 10px;
+    border:1px solid #696969;
+}
+/* Mengatur warna baris */
+.table1 tr {
+    background:#F5FFFA;
+}
+/* Mengatur warna baris genap (akan menghasilkan warna selang seling pada baris tabel) */
+.table1 tr:nth-child(even) {
+    background:#F0F8FF;
+}
+/*ini menyesuaikan gambar header(homeageimage)*/
+/*.pkp_page_index .homepage_image, .pkp_page_index {
+  margin-left: -30px;
+  margin-right: -300px;
+}*/
+/*.pkp_structure_sidebar {
+    margin-top: -60px;
+}*/
+#customblock-submission-image {
+padding:0;
+border-radius:5px;
+}
+#customblock-submission-image h2{
+display:none
+}

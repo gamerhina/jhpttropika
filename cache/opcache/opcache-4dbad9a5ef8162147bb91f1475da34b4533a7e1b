@@ -1,0 +1,35 @@
+<?php $exp = 1816693078; $val = array (
+  'domain' => NULL,
+  'plural-forms' => NULL,
+  'messages' => 
+  array (
+    '' => 
+    array (
+      'Afrikaans' => 'Afrika',
+      'Arabic' => 'Ərəbcə',
+      'Chinese' => 'Çincə',
+      'Croatian' => 'Xırvatca',
+      'Dutch' => 'Flemenkçə',
+      'Faroese' => 'Faero',
+      'French' => 'Fransızca',
+      'Hebrew' => 'İvrit',
+      'Hungarian' => 'Macarca',
+      'Icelandic' => 'İslandiyaca',
+      'Indonesian' => 'İndoneziyaca',
+      'Irish' => 'İrlandca',
+      'Italian' => 'İtalyan',
+      'Japanese' => 'Yaponca',
+      'Korean' => 'Korecə',
+      'Latvian' => 'Latviya',
+      'Lithuanian' => 'Litva',
+      'Macedonian' => 'Makedonca',
+      'Norwegian' => 'Norveçcə',
+      'Polish' => 'Polyakca',
+      'Portuguese' => 'Portuqal',
+      'Russian' => 'Rusca',
+      'Thai' => 'Thai',
+      'Turkish' => 'Türkcə',
+      'Vietnamese' => 'Vyetnamca',
+    ),
+  ),
+);

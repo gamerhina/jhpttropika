@@ -1,0 +1,9 @@
+<?php $exp = 1816692904; $val = array (
+  'application' => 'lensGalley',
+  'class' => 'LensGalleyPlugin',
+  'type' => 'plugins.generic',
+  'release' => '1.0.1.0',
+  'date' => '2021-01-29',
+  'lazy-load' => 1,
+  'sitewide' => 0,
+);

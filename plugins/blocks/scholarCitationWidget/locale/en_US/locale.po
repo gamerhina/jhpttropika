@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.block.scholarCitationWidget.displayName"
+msgstr "Scholar Citation Widget"
+
+msgid "plugins.block.scholarCitationWidget.description"
+msgstr "Displays Google Scholar citation metrics and a citation trend graph on your journal's sidebar using locally cached data."
+
+msgid "plugins.block.scholarCitationWidget.settings"
+msgstr "Scholar Citation Widget Settings"
+
+msgid "plugins.block.scholarCitationWidget.settings.scholarId"
+msgstr "Google Scholar ID"
+
+msgid "plugins.block.scholarCitationWidget.settings.scholarIdRequired"
+msgstr "Google Scholar ID is required."
+
+msgid "plugins.block.scholarCitationWidget.settings.sidebarTitle"
+msgstr "Sidebar Title"
+
+msgid "plugins.block.scholarCitationWidget.settings.cacheHours"
+msgstr "Cache Lifetime (Hours)"
+
+msgid "plugins.block.scholarCitationWidget.settings.jsonFileLocation"
+msgstr "Custom JSON File Location (Optional)"
+
+msgid "plugins.block.scholarCitationWidget.settings.jsonFileLocationDesc"
+msgstr "Relative or absolute path to citations.json (leave empty to use default plugin cache)."
+
+msgid "plugins.block.scholarCitationWidget.settings.themeColor"
+msgstr "Widget Highlight Color (Hex)"
+
+msgid "plugins.block.scholarCitationWidget.settings.showButton"
+msgstr "Show Google Scholar Button"
+
+msgid "plugins.block.scholarCitationWidget.settings.showGraph"
+msgstr "Show Citation History Graph"
+
+msgid "plugins.block.scholarCitationWidget.error.noData"
+msgstr "No citation data available."
+
+msgid "plugins.block.scholarCitationWidget.error.invalidJson"
+msgstr "Invalid citation file."
+
+msgid "plugins.block.scholarCitationWidget.citations"
+msgstr "Citations"
+
+msgid "plugins.block.scholarCitationWidget.hIndex"
+msgstr "h-index"
+
+msgid "plugins.block.scholarCitationWidget.i10Index"
+msgstr "i10-index"
+
+msgid "plugins.block.scholarCitationWidget.updated"
+msgstr "Updated"
+
+msgid "plugins.block.scholarCitationWidget.viewProfile"
+msgstr "View Google Scholar Profile"

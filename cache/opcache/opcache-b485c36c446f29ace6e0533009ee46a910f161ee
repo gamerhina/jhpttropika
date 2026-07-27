@@ -1,0 +1,8 @@
+<?php $exp = 1816694206; $val = array (
+  'application' => 'counterReport',
+  'type' => 'plugins.reports',
+  'release' => '1.1.0.0',
+  'date' => '2015-01-11',
+  'sitewide' => 0,
+  'lazy-load' => 0,
+);

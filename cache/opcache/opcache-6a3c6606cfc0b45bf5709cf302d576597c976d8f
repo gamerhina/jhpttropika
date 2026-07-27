@@ -1,0 +1,9 @@
+<?php $exp = 1816692904; $val = array (
+  'application' => 'customBlockManager',
+  'class' => 'CustomBlockManagerPlugin',
+  'type' => 'plugins.generic',
+  'release' => '1.2.0.0',
+  'date' => '2014-09-19',
+  'lazy-load' => 1,
+  'sitewide' => 0,
+);

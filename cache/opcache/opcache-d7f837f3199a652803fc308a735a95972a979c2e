@@ -1,0 +1,9 @@
+<?php $exp = 1816692904; $val = array (
+  'application' => 'dublinCoreMeta',
+  'class' => 'DublinCoreMetaPlugin',
+  'type' => 'plugins.generic',
+  'release' => '1.0.0.0',
+  'date' => '2016-09-23',
+  'lazy-load' => 1,
+  'sitewide' => 0,
+);

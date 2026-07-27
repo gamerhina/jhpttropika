@@ -1,0 +1,12 @@
+<?php $exp = 1816687834; $val = array (
+  'domain' => NULL,
+  'plural-forms' => NULL,
+  'messages' => 
+  array (
+    '' => 
+    array (
+      'plugins.metadata.dc11.articleAdapter.displayName' => 'DC 1.1 Article Format Adapter',
+      'plugins.metadata.dc11.articleAdapter.description' => 'Extracts/injects meta-data from/into article format.',
+    ),
+  ),
+);

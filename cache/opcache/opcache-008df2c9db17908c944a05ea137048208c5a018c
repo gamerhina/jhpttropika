@@ -1,0 +1,8 @@
+<?php $exp = 1816694206; $val = array (
+  'application' => 'subscriptions',
+  'type' => 'plugins.reports',
+  'release' => '1.0.0.0',
+  'date' => '2010-12-14',
+  'sitewide' => 0,
+  'lazy-load' => 0,
+);
