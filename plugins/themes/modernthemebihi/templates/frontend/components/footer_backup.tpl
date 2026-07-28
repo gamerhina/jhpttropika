@@ -103,20 +103,6 @@
 
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function(){		
- window.addEventListener('scroll', function() {
-     if (window.innerWidth > 1000){
-         if (window.scrollY > 100) {
-             document.getElementById('navbar-top').classList.add('fixed-top');
-             navbar_height = document.querySelector('.navbar-top').offsetHeight;
-             document.body.style.paddingTop = navbar_height + 'px';
-             document.getElementById('brand-name').classList.add('brand-name-letter-spacing-on-scroll');
-             document.getElementById('header-box').classList.add('shadow');
-         } else {
-             document.getElementById('navbar-top').classList.remove('fixed-top');
-             document.getElementById('header-box').classList.remove('shadow');
-             document.getElementById('brand-name').classList.remove('brand-name-letter-spacing-on-scroll');
-             document.body.style.paddingTop = '0';
-         } 
      }
  });
 }); 

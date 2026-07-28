@@ -117,14 +117,18 @@ body { background-image: url('{$mainBgImage|escape}'); background-size: cover; b
  document.addEventListener("DOMContentLoaded", function(){		
 	 window.addEventListener('scroll', function() {
 		 if (window.innerWidth > 1000){
-			 if (window.scrollY > 200) {
-				 document.getElementById('is-header-fixed').classList.add('fixed-top');
-				 navbar_height = document.querySelector('.navbar-top').offsetHeight;
-				 document.body.style.paddingTop = navbar_height + 'px';
-			 } else {
-				 document.getElementById('is-header-fixed').classList.remove('fixed-top');
-				 document.body.style.paddingTop = '0';
-			 } 
+			 var headerFixed = document.getElementById('is-header-fixed');
+			 var navbarTop = document.querySelector('.navbar-top');
+			 if (headerFixed && navbarTop) {
+				 if (window.scrollY > 200) {
+					 headerFixed.classList.add('fixed-top');
+					 navbar_height = navbarTop.offsetHeight;
+					 document.body.style.paddingTop = navbar_height + 'px';
+				 } else {
+					 headerFixed.classList.remove('fixed-top');
+					 document.body.style.paddingTop = '0';
+				 } 
+			 }
 		 }
 	 });
 
