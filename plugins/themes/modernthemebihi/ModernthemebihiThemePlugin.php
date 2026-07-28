@@ -270,36 +270,71 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
             ];
             
             try {
-                if (!empty($articleIds)) {
-                    foreach ($articleIds as $id) {
-                        $cacheKey = 'views_a_' . $id;
-                        $results['articles'][$id] = \Illuminate\Support\Facades\Cache::remember($cacheKey, 3600, function() use ($id, $contextId) {
-                            $filters = [
-                                'dateStart' => \APP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
-                                'dateEnd' => date('Y-m-d', strtotime('yesterday')),
-                                'contextIds' => [$contextId],
-                                'submissionIds' => [$id],
-                                'assocTypes' => [\APP\core\Application::ASSOC_TYPE_SUBMISSION],
-                            ];
-                            $val = \APP\core\Services::get('publicationStats')->getQueryBuilder($filters)->getSum([])->value('metric');
-                            return (int) $val;
-                        });
+                $missingArticleIds = [];
+                foreach ($articleIds as $id) {
+                    $cacheKey = 'views_a_' . $id;
+                    $cached = \Illuminate\Support\Facades\Cache::get($cacheKey);
+                    if ($cached !== null) {
+                        $results['articles'][$id] = (int) $cached;
+                    } else {
+                        $missingArticleIds[] = $id;
                     }
                 }
                 
-                if (!empty($galleyIds)) {
-                    foreach ($galleyIds as $id) {
+                if (!empty($missingArticleIds)) {
+                    $filters = [
+                        'dateStart' => \APP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
+                        'dateEnd' => date('Y-m-d', strtotime('yesterday')),
+                        'contextIds' => [$contextId],
+                        'submissionIds' => $missingArticleIds,
+                        'assocTypes' => [\APP\core\Application::ASSOC_TYPE_SUBMISSION],
+                    ];
+                    $records = \APP\core\Services::get('publicationStats')->getQueryBuilder($filters)
+                        ->getSum([\APP\statistics\StatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID])->get();
+                    
+                    // Initialize with 0 for those that have no views
+                    foreach ($missingArticleIds as $id) {
+                        $results['articles'][$id] = 0;
+                    }
+                    foreach ($records as $record) {
+                        $results['articles'][$record->submission_id] = (int) $record->metric;
+                    }
+                    foreach ($missingArticleIds as $id) {
+                        $cacheKey = 'views_a_' . $id;
+                        \Illuminate\Support\Facades\Cache::put($cacheKey, $results['articles'][$id], 3600);
+                    }
+                }
+                
+                $missingGalleyIds = [];
+                foreach ($galleyIds as $id) {
+                    $cacheKey = 'views_g_' . $id;
+                    $cached = \Illuminate\Support\Facades\Cache::get($cacheKey);
+                    if ($cached !== null) {
+                        $results['galleys'][$id] = (int) $cached;
+                    } else {
+                        $missingGalleyIds[] = $id;
+                    }
+                }
+                
+                if (!empty($missingGalleyIds)) {
+                    $filters = [
+                        'dateStart' => \APP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
+                        'dateEnd' => date('Y-m-d', strtotime('yesterday')),
+                        'contextIds' => [$contextId],
+                        'submissionFileIds' => $missingGalleyIds,
+                    ];
+                    $records = \APP\core\Services::get('publicationStats')->getQueryBuilder($filters)
+                        ->getSum([\APP\statistics\StatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_FILE_ID])->get();
+                    
+                    foreach ($missingGalleyIds as $id) {
+                        $results['galleys'][$id] = 0;
+                    }
+                    foreach ($records as $record) {
+                        $results['galleys'][$record->submission_file_id] = (int) $record->metric;
+                    }
+                    foreach ($missingGalleyIds as $id) {
                         $cacheKey = 'views_g_' . $id;
-                        $results['galleys'][$id] = \Illuminate\Support\Facades\Cache::remember($cacheKey, 3600, function() use ($id, $contextId) {
-                            $filters = [
-                                'dateStart' => \APP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
-                                'dateEnd' => date('Y-m-d', strtotime('yesterday')),
-                                'contextIds' => [$contextId],
-                                'submissionFileIds' => [$id],
-                            ];
-                            $val = \APP\core\Services::get('publicationStats')->getQueryBuilder($filters)->getSum([])->value('metric');
-                            return (int) $val;
-                        });
+                        \Illuminate\Support\Facades\Cache::put($cacheKey, $results['galleys'][$id], 3600);
                     }
                 }
             } catch (\Throwable $e) {
