@@ -49,14 +49,9 @@
 			<p class="lead description font-size-14 text-muted mb-4">
 				{translate key="about.submissionPreparationChecklist.description"}
 			</p>
-			<ul class="list-group list-group-flush">
-				{foreach from=$submissionChecklist item=checklistItem}
-					<li class="list-group-item d-flex align-items-start border-0 py-3" style="padding-left: 0; padding-right: 0;">
-						<span class="glyphicon glyphicon-ok-circle text-success" aria-hidden="true" style="margin-right: 12px; margin-top: 3px; font-size: 1.1rem;"></span>
-						<span class="item-content font-size-14">{$checklistItem.content|nl2br}</span>
-					</li>
-				{/foreach}
-			</ul>
+			<div class="submission_checklist font-size-14 mt-4">
+				{$submissionChecklist}
+			</div>
 		</div>
 	{/if}
 	{* /Submission Checklist *}
