@@ -1,0 +1,6 @@
+<?php $exp = 1785218589; $val = \Illuminate\Support\LazyCollection::__set_state(array(
+   'source' => 
+  \Closure::__set_state(array(
+  )),
+   'escapeWhenCastingToString' => false,
+));

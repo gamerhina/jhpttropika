@@ -209,6 +209,7 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
      * Fetch and assign authorUserGroups to the template manager
      */
     protected $_authorUserGroups = null;
+    protected static $calledCount = 0;
 
     public function assignAuthorUserGroups($hookName, $args)
     {
@@ -223,7 +224,11 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
         $journal = $request->getJournal();
 
         if ($journal) {
+            self::$calledCount++;
+            file_put_contents('C:\laragon\tmp\ojs_perf_count.log', "assignAuthorUserGroups called: " . self::$calledCount . " times. This instance: " . spl_object_id($this) . "\n", FILE_APPEND);
+
             if ($this->_authorUserGroups === null) {
+                file_put_contents('C:\laragon\tmp\ojs_perf_count.log', "Fetching from DB...\n", FILE_APPEND);
                 $this->_authorUserGroups = \APP\facades\Repo::userGroup()->getCollector()
                     ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
                     ->filterByContextIds([$journal->getId()])

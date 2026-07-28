@@ -63,6 +63,7 @@
 	<div class="meta">
 		{if $showAuthor}
 		<div class="authors">
+			<!-- DEBUG: authorUserGroups is {$authorUserGroups|@get_class|default:'NULL'} -->
 			{$publication->getAuthorString($authorUserGroups)|escape}
 		</div>
 		{/if}
