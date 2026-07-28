@@ -806,11 +806,11 @@ margin: 10px 0;
     transform: scale(1) translateY(0);
 }
 .atlas-cover-stack:hover .atlas-cover.front {
-    transform: translateY(-8px) scale(1.02) rotate(-15deg);
+    transform: translateY(-8px) scale(1.02) rotate(-4deg);
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 .atlas-cover-stack:hover .atlas-cover.back {
-    transform: translateY(-15px) scale(0.98) rotate(10deg);
+    transform: translateY(-15px) scale(0.98) rotate(3deg);
     opacity: 1;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
