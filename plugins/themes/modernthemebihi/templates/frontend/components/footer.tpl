@@ -19,7 +19,7 @@
 			<div class="card w-100 border-0 shadow p-2 mb-2">
 				<div class="">
 					{if $thumb}
-					<div class="mb-3 text-center pb-2">
+					<div class="mb-3 text-center pb-2 atlas-cover-stack-container">
 						<div class="atlas-cover-stack">
 							<a class="atlas-cover-stack-link" href="{$url}/issue/current" aria-label="View issue"></a>
 							<div class="atlas-cover back"></div>

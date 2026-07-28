@@ -759,12 +759,16 @@ margin: 10px 0;
     margin-top: 3px;
     font-size: 1rem;
 }
+.atlas-cover-stack-container {
+    padding: 15px 10px 25px 10px; /* Add padding to prevent clipping */
+    overflow: visible !important;
+}
 .atlas-cover-stack {
     position: relative;
     display: inline-block;
     width: 100%;
     max-width: 100%;
-    margin: 10px auto 20px auto;
+    margin: 0 auto;
     perspective: 1000px;
     z-index: 1;
 }
