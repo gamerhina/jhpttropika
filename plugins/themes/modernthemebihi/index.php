@@ -16,6 +16,4 @@
  *
  */
 
-require_once 'ModernthemebihiThemePlugin.inc.php';
-
-return new ModernthemebihiThemePlugin();
+return new \APP\plugins\themes\modernthemebihi\ModernthemebihiThemePlugin();

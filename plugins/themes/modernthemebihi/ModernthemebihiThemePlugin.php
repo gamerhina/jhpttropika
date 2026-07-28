@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/default/ModernthemebihiThemePlugin.inc.php
+ * @file plugins/themes/default/ModernthemebihiThemePlugin.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University Library
  * Copyright (c) 2003-2017 John Willinsky
@@ -13,8 +13,12 @@
  * @brief Default theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
-class ModernthemebihiThemePlugin extends ThemePlugin
+namespace APP\plugins\themes\modernthemebihi;
+
+use APP\core\Application;
+use PKP\config\Config;
+
+class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
 {
     /**
      * Initialize the theme
@@ -305,5 +309,8 @@ class ModernthemebihiThemePlugin extends ThemePlugin
     {
         return __('plugins.themes.modernthemebihi.description');
     }
+}
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\themes\modernthemebihi\ModernthemebihiThemePlugin', '\ModernthemebihiThemePlugin');
 }
