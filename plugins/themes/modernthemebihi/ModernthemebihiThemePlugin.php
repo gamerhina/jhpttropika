@@ -275,13 +275,13 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
                         $cacheKey = 'views_a_' . $id;
                         $results['articles'][$id] = \Illuminate\Support\Facades\Cache::remember($cacheKey, 3600, function() use ($id, $contextId) {
                             $filters = [
-                                'dateStart' => \PKP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
+                                'dateStart' => \APP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
                                 'dateEnd' => date('Y-m-d', strtotime('yesterday')),
                                 'contextIds' => [$contextId],
                                 'submissionIds' => [$id],
-                                'assocTypes' => [\PKP\core\Application::ASSOC_TYPE_SUBMISSION],
+                                'assocTypes' => [\APP\core\Application::ASSOC_TYPE_SUBMISSION],
                             ];
-                            $val = \PKP\core\Services::get('publicationStats')->getQueryBuilder($filters)->getSum([])->value('metric');
+                            $val = \APP\core\Services::get('publicationStats')->getQueryBuilder($filters)->getSum([])->value('metric');
                             return (int) $val;
                         });
                     }
@@ -292,12 +292,12 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
                         $cacheKey = 'views_g_' . $id;
                         $results['galleys'][$id] = \Illuminate\Support\Facades\Cache::remember($cacheKey, 3600, function() use ($id, $contextId) {
                             $filters = [
-                                'dateStart' => \PKP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
+                                'dateStart' => \APP\statistics\StatisticsHelper::STATISTICS_EARLIEST_DATE,
                                 'dateEnd' => date('Y-m-d', strtotime('yesterday')),
                                 'contextIds' => [$contextId],
                                 'submissionFileIds' => [$id],
                             ];
-                            $val = \PKP\core\Services::get('publicationStats')->getQueryBuilder($filters)->getSum([])->value('metric');
+                            $val = \APP\core\Services::get('publicationStats')->getQueryBuilder($filters)->getSum([])->value('metric');
                             return (int) $val;
                         });
                     }
