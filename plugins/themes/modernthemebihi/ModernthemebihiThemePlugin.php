@@ -208,6 +208,8 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
     /**
      * Fetch and assign authorUserGroups to the template manager
      */
+    protected $_authorUserGroups = null;
+
     public function assignAuthorUserGroups($hookName, $args)
     {
         $templateMgr = $args[0];
@@ -221,14 +223,14 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
         $journal = $request->getJournal();
 
         if ($journal) {
-            $contextId = $journal->getId();
-            $authorUserGroups = \Illuminate\Support\Facades\Cache::remember('authorUserGroups_' . $contextId, 3600, function() use ($contextId) {
-                return \APP\facades\Repo::userGroup()->getCollector()
+            if ($this->_authorUserGroups === null) {
+                $this->_authorUserGroups = \APP\facades\Repo::userGroup()->getCollector()
                     ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                    ->filterByContextIds([$contextId])
-                    ->getMany();
-            });
-            $templateMgr->assign('authorUserGroups', $authorUserGroups);
+                    ->filterByContextIds([$journal->getId()])
+                    ->getMany()
+                    ->remember();
+            }
+            $templateMgr->assign('authorUserGroups', $this->_authorUserGroups);
         }
 
         return false;
