@@ -60,7 +60,7 @@
                         <div class="meta mb-2">
                             {if $showAuthor}
                                 <div class="authors font-size-13">
-                                    <img src="{$baseUrl}/plugins/themes/modernthemebihi/image/icon/icon-author.png" class="me-1" height="15px"/>{$publication->getAuthorString($authorUserGroups)|escape}
+                                    <img src="{$baseUrl}/plugins/themes/modernthemebihi/image/icon/icon-author.png" class="me-1" height="15px"/><!-- DEBUG_V2: {$authorUserGroups|@get_class|default:'NULL'} -->{$publication->getAuthorString($authorUserGroups)|escape}
                                 </div>
                             {/if}
                         </div>
