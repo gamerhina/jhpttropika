@@ -24,7 +24,7 @@
 
 	{* Login/register prompt wrapped in a sleek CTA card *}
 	<div class="submissions-cta-card shadow-sm">
-		<h2>{translate key="about.onlineSubmissions"}</h2>
+		<h2>{translate key="about.submissions"}</h2>
 		{if $isUserLoggedIn}
 			{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}" class="btn btn-success px-4 py-2 mx-1 my-1" style="border-radius: 6px; font-weight: 600;">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
 			{capture assign="viewSubmissions"}<a href="{url page="submissions"}" class="btn btn-outline-success px-4 py-2 mx-1 my-1" style="border-radius: 6px; font-weight: 600;">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
