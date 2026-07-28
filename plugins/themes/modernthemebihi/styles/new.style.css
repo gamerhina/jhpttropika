@@ -565,5 +565,197 @@ margin: 10px 0;
     line-height: 1.4 !important;
 }
 
+/* Custom Styles for Modern & Compact Auth Pages & Submissions */
+.auth-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 350px);
+    padding: 2rem 1rem;
+}
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    padding: 2rem;
+    margin: 0 auto;
+}
+.login-card .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.login-card .card-subtitle {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.login-card .form-control {
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.875rem;
+    transition: all 0.2s ease-in-out;
+}
+.login-card .form-control:focus {
+    border-color: var(--bg-theme);
+    box-shadow: 0 0 0 3px rgba(1, 68, 1, 0.15);
+    outline: 0;
+}
+.login-card label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+}
+.btn-primary-custom {
+    background: var(--bg-theme);
+    color: #fff !important;
+    border: none;
+    height: 42px;
+    border-radius: 50px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-primary-custom:hover {
+    background: rgba(1, 68, 1, 0.9);
+    color: #fff !important;
+}
+.btn-secondary-custom {
+    background: transparent;
+    color: var(--bg-theme) !important;
+    border: 1.5px solid var(--bg-theme);
+    height: 42px;
+    border-radius: 50px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-secondary-custom:hover {
+    background: rgba(1, 68, 1, 0.05);
+    color: var(--bg-theme) !important;
+    border-color: rgba(1, 68, 1, 0.9);
+}
 
+/* Register Card Layout */
+.register-card {
+    width: 100%;
+    max-width: 780px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    padding: 2.2rem;
+    margin: 0 auto;
+}
+.register-card fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.register-card legend {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--bg-theme);
+    border-bottom: 2px solid rgba(1, 68, 1, 0.1);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    float: none;
+    width: 100%;
+}
+.register-card .form-control, .register-card select {
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+}
+.register-card .form-control:focus, .register-card select:focus {
+    border-color: var(--bg-theme);
+    box-shadow: 0 0 0 3px rgba(1, 68, 1, 0.15);
+    outline: 0;
+}
+.register-card label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 4px;
+}
+.register-card .form-control-required {
+    color: #dc3545;
+}
 
+/* Submissions Page Enhancements */
+.submissions-cta-card {
+    background: linear-gradient(135deg, rgba(1, 68, 1, 0.02) 0%, rgba(1, 68, 1, 0.07) 100%);
+    border: 1px solid rgba(1, 68, 1, 0.15);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.submissions-cta-card h2 {
+    font-size: 1.4rem !important;
+    font-weight: 700;
+    color: var(--bg-theme);
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    padding: 0 !important;
+}
+.submissions-cta-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.25rem;
+}
+.submission-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+.submission-card h3.page-body-header {
+    border-bottom: 2px solid rgba(1, 68, 1, 0.1);
+    color: #2c2c2c;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+.submission-card .list-group-item {
+    border: none;
+    padding: 10px 0;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #4a4a4a;
+}
+.submission-card .list-group-item .glyphicon {
+    color: var(--bg-theme);
+    margin-right: 12px;
+    margin-top: 3px;
+    font-size: 1rem;
+}

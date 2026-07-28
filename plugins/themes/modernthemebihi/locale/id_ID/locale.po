@@ -178,4 +178,9 @@ msgstr "Link/Tautan URL Gambar Slider 3"
 msgid "plugins.themes.modernthemebihi.options.sliderLink3.description"
 msgstr "Tautan URL untuk gambar ketiga."
 
+msgid "plugins.themes.modernthemebihi.login.subtitle"
+msgstr "Silakan masuk ke akun Anda untuk melanjutkan pengiriman atau pengelolaan naskah artikel."
+
+msgid "plugins.themes.modernthemebihi.register.subtitle"
+msgstr "Daftarkan akun baru Anda untuk mengirim naskah artikel dan berpartisipasi sebagai penulis atau peninjau."
 

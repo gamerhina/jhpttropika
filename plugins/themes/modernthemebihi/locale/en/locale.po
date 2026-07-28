@@ -178,4 +178,9 @@ msgstr "Slider 3 Image Link (URL)"
 msgid "plugins.themes.modernthemebihi.options.sliderLink3.description"
 msgstr "URL to redirect when the third image is clicked."
 
+msgid "plugins.themes.modernthemebihi.login.subtitle"
+msgstr "Please log in to your account to proceed with submission or manage your active manuscripts."
+
+msgid "plugins.themes.modernthemebihi.register.subtitle"
+msgstr "Register your new account to submit manuscripts and participate as an author or reviewer."
 
