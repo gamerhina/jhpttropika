@@ -213,7 +213,6 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
         $templateMgr = $args[0];
         $template = $args[1];
 
-        // Only run for frontend templates
         if (strpos($template, 'frontend/') === false && strpos($template, 'core:') === false) {
             return false;
         }
@@ -222,11 +221,13 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
         $journal = $request->getJournal();
 
         if ($journal) {
-            $authorUserGroups = \APP\facades\Repo::userGroup()->getCollector()
-                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                ->filterByContextIds([$journal->getId()])
-                ->getMany()
-                ->remember();
+            $contextId = $journal->getId();
+            $authorUserGroups = \Illuminate\Support\Facades\Cache::remember('authorUserGroups_' . $contextId, 3600, function() use ($contextId) {
+                return \APP\facades\Repo::userGroup()->getCollector()
+                    ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
+                    ->filterByContextIds([$contextId])
+                    ->getMany();
+            });
             $templateMgr->assign('authorUserGroups', $authorUserGroups);
         }
 
