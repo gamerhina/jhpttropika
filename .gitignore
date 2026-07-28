@@ -7,3 +7,6 @@ cache/t_config/*
 /test*.php
 /*test.php
 /check*.php
+
+# Ignore configuration files
+config.inc*.php
