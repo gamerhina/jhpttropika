@@ -1,9 +1,0 @@
-<?php $exp = 1816692904; $val = array (
-  'application' => 'driver',
-  'class' => 'DRIVERPlugin',
-  'type' => 'plugins.generic',
-  'release' => '1.0.0.0',
-  'date' => '2011-09-13',
-  'lazy-load' => 1,
-  'sitewide' => 0,
-);

@@ -1,9 +1,0 @@
-<?php $exp = 1816692904; $val = array (
-  'application' => 'googleScholar',
-  'class' => 'GoogleScholarPlugin',
-  'type' => 'plugins.generic',
-  'release' => '1.1.0.0',
-  'date' => '2020-03-23',
-  'lazy-load' => 1,
-  'sitewide' => 0,
-);

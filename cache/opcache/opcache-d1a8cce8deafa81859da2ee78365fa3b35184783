@@ -1,9 +1,0 @@
-<?php $exp = 1816694206; $val = array (
-  'application' => 'pdfJsViewer',
-  'class' => 'PdfJsViewerPlugin',
-  'type' => 'plugins.generic',
-  'release' => '1.0.1.0',
-  'date' => '2019-05-15',
-  'lazy-load' => 1,
-  'sitewide' => 0,
-);

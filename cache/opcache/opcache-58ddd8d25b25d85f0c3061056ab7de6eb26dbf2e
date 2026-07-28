@@ -1,9 +1,0 @@
-<?php $exp = 1816694206; $val = array (
-  'application' => 'staticPages',
-  'class' => 'StaticPagesPlugin',
-  'type' => 'plugins.generic',
-  'release' => '1.2.0.0',
-  'date' => '2014-09-24',
-  'lazy-load' => 1,
-  'sitewide' => 0,
-);

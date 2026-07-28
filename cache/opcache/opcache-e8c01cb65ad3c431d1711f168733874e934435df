@@ -1,8 +1,0 @@
-<?php $exp = 1816694206; $val = array (
-  'application' => 'doaj',
-  'type' => 'plugins.importexport',
-  'release' => '1.1.0.0',
-  'date' => '2016-08-27',
-  'sitewide' => 0,
-  'lazy-load' => 0,
-);

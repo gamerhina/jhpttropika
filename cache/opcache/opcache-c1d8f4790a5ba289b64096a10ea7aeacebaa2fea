@@ -1,9 +1,0 @@
-<?php $exp = 1816692904; $val = array (
-  'application' => 'acron',
-  'class' => 'AcronPlugin',
-  'type' => 'plugins.generic',
-  'release' => '1.3.0.0',
-  'date' => '2022-08-05',
-  'lazy-load' => 1,
-  'sitewide' => 1,
-);

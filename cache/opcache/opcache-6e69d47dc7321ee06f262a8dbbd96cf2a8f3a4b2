@@ -1,9 +1,0 @@
-<?php $exp = 1816692903; $val = array (
-  'application' => 'scholarCitationWidget',
-  'class' => 'APP\\plugins\\blocks\\scholarCitationWidget\\ScholarCitationWidgetBlockPlugin',
-  'type' => 'plugins.blocks',
-  'release' => '1.0.0.0',
-  'date' => '2026-07-20',
-  'lazy-load' => 0,
-  'sitewide' => 0,
-);

@@ -1,9 +1,0 @@
-<?php $exp = 1816692904; $val = array (
-  'application' => 'citationStyleLanguage',
-  'class' => 'CitationStyleLanguagePlugin',
-  'type' => 'plugins.generic',
-  'release' => '0.1.0.0',
-  'date' => '2017-06-28',
-  'lazy-load' => 1,
-  'sitewide' => 0,
-);
