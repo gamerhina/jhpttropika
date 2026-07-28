@@ -168,6 +168,13 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
     public function assignThemeStyles($hookName, $args)
     {
         $templateMgr = $args[0];
+        $template = $args[1];
+
+        // Only assign styles for frontend templates to avoid backend crashes
+        if (strpos($template, 'frontend/') === false && strpos($template, 'core:') === false) {
+            return false;
+        }
+
         $baseColor = $this->getOption('baseColor');
         if (empty($baseColor)) {
             $baseColor = '#014401';
@@ -204,6 +211,13 @@ class ModernthemebihiThemePlugin extends \PKP\plugins\ThemePlugin
     public function assignAuthorUserGroups($hookName, $args)
     {
         $templateMgr = $args[0];
+        $template = $args[1];
+
+        // Only run for frontend templates
+        if (strpos($template, 'frontend/') === false && strpos($template, 'core:') === false) {
+            return false;
+        }
+
         $request = \APP\core\Application::get()->getRequest();
         $journal = $request->getJournal();
 
