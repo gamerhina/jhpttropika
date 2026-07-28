@@ -19,10 +19,16 @@
 			<div class="card w-100 border-0 shadow p-2 mb-2">
 				<div class="">
 					{if $thumb}
-					<div class="mb-2 text-center border-bottom pb-2">
-						<img class="media-object img-responsive cover_thumbnail lazyload w-100 rounded" 
-							src="{$publicFilesDir}/{$journalFilesPath}/{$thumb.uploadName|escape:" url"}"{if $altText}
-							alt="{$altText|escape}" {/if}>  
+					<div class="mb-3 text-center pb-2">
+						<div class="atlas-cover-stack">
+							<a class="atlas-cover-stack-link" href="{$url}/issue/current" aria-label="View issue"></a>
+							<div class="atlas-cover back"></div>
+							<div class="atlas-cover front">
+								<img class="media-object img-responsive cover_thumbnail lazyload w-100 rounded" 
+									src="{$publicFilesDir}/{$journalFilesPath}/{$thumb.uploadName|escape:"url"}"{if $altText}
+									alt="{$altText|escape}" {/if}>
+							</div>
+						</div>
 					</div>
 					{/if}
 
