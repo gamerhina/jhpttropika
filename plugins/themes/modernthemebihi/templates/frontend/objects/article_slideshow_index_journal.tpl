@@ -98,12 +98,15 @@
         
         			{* Section untuk menghitung jumlah abstract view dan PDF download *}
                     {assign var=galleys value=$article->getGalleys()} 
-                    <div class="pubId font-size-13">
-                        <img src="{$baseUrl}/plugins/themes/modernthemebihi/image/icon/icon-graph.png" class="me-1" height="15px"/>Abstract views: <span class="async-stats-view" data-type="article" data-id="{$article->getId()}"><i class="fa fa-spinner fa-spin"></i></span> 
+                    <div class="pubId font-size-13 d-flex flex-wrap align-items-center gap-3 mt-2">
+                        <span class="text-nowrap">
+                            <img src="{$baseUrl}/plugins/themes/modernthemebihi/image/icon/icon-graph.png" class="me-1" height="15px"/>Abstract views: <span class="async-stats-view" data-type="article" data-id="{$article->getId()}"><i class="fa fa-spinner fa-spin"></i></span>
+                        </span>
                         {if $galleys} 
                             {foreach from=$galleys item=galley name=galleyList} 
-                                <br />
-                                <img src="{$baseUrl}/plugins/themes/modernthemebihi/image/icon/icon-pdf.png" class="me-1 ms-3" height="15px"/>PDF downloads: <span class="async-stats-view" data-type="galley" data-id="{$galley->getData('submissionFileId')}"><i class="fa fa-spinner fa-spin"></i></span> 
+                                <span class="text-nowrap">
+                                    <img src="{$baseUrl}/plugins/themes/modernthemebihi/image/icon/icon-pdf.png" class="me-1" height="15px"/>PDF downloads: <span class="async-stats-view" data-type="galley" data-id="{$galley->getData('submissionFileId')}"><i class="fa fa-spinner fa-spin"></i></span>
+                                </span>
                             {/foreach} 
                         {/if}
                     </div>
