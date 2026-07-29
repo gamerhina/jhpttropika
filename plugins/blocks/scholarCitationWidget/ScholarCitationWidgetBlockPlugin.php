@@ -135,19 +135,26 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
                 }
                 
                 $pluginDir = $this->getPluginPath();
-                $pythonScript = $pluginDir . '/updater/updater.py';
+                $pythonScript = realpath($pluginDir . '/updater/updater.py');
                 
                 $jsonPath = !empty($customPath)
                     ? $customPath
-                    : $pluginDir . '/cache/citations.json';
+                    : realpath($pluginDir . '/cache') . '/citations.json';
                     
                 $cmd = "python " . escapeshellarg($pythonScript) . " --id " . escapeshellarg($scholarId) . " --output " . escapeshellarg($jsonPath) . " 2>&1";
-                $output = shell_exec($cmd);
+                $output = (string) shell_exec($cmd);
                 
                 if (strpos($output, 'Update complete') !== false) {
+                    // Clear OJS caches so the updated sidebar is shown immediately
+                    $templateMgr = \APP\template\TemplateManager::getManager($request);
+                    $templateMgr->clearTemplateCache();
+                    
+                    $cacheManager = \PKP\cache\CacheManager::getManager();
+                    $cacheManager->flush();
+                    
                     return new JSONMessage(true, 'Data synchronized successfully!');
                 } else {
-                    return new JSONMessage(false, 'Sync failed: ' . $output);
+                    return new JSONMessage(false, 'Sync failed: ' . ($output ?: 'Python command failed or is not available.'));
                 }
 
             case 'settings':
