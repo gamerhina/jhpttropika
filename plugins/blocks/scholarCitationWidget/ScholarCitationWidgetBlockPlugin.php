@@ -120,6 +120,30 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
     public function manage($args, $request)
     {
         switch ($request->getUserVar('verb')) {
+            case 'sync':
+                $scholarId = $request->getUserVar('scholarId');
+                $customPath = $request->getUserVar('jsonPath');
+                
+                if (empty($scholarId)) {
+                    return new JSONMessage(false, 'Scholar ID is required for sync.');
+                }
+                
+                $pluginDir = $this->getPluginPath();
+                $pythonScript = $pluginDir . '/updater/updater.py';
+                
+                $jsonPath = !empty($customPath)
+                    ? $customPath
+                    : $pluginDir . '/cache/citations.json';
+                    
+                $cmd = "python " . escapeshellarg($pythonScript) . " --id " . escapeshellarg($scholarId) . " --output " . escapeshellarg($jsonPath) . " 2>&1";
+                $output = shell_exec($cmd);
+                
+                if (strpos($output, 'Update complete') !== false) {
+                    return new JSONMessage(true, 'Data synchronized successfully!');
+                } else {
+                    return new JSONMessage(false, 'Sync failed: ' . $output);
+                }
+
             case 'settings':
                 $context   = $request->getContext();
                 $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE;
@@ -159,13 +183,13 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
 
         $contextId = $context->getId();
 
-        // â”€â”€ Resolve JSON path â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        // --- Resolve JSON path ---------------------------------------
         $customPath = $this->getSetting($contextId, 'jsonFileLocation');
         $jsonPath   = !empty($customPath)
             ? $customPath
             : $this->getPluginPath() . '/cache/citations.json';
 
-        // â”€â”€ Cache freshness check â”€â”€
+        // --- Cache freshness check ---
         $cacheHours = (int) ($this->getSetting($contextId, 'cacheHours') ?? 24);
         $cache      = new Cache($jsonPath, $cacheHours);
 
@@ -173,14 +197,14 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
             error_log('[ScholarCitationWidget] Cache is stale (' . $cache->getAgeFormatted() . '). Re-run updater.py to refresh.');
         }
 
-        // â”€â”€ Ensure locale files are registered for translations â”€â”€
+        // --- Ensure locale files are registered for translations ---
         $this->addLocaleData();
 
-        // â”€â”€ Read & validate JSON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        // --- Read & validate JSON ------------------------------------
         $reader   = new JsonReader($jsonPath);
         $jsonData = $reader->read();
 
-        // â”€â”€ Build widget view-model â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        // --- Build widget view-model ---------------------------------
         $assetPath = $request->getBaseUrl() . '/' . $this->getPluginPath();
         $widget    = new Widget(
             data:            $jsonData,
@@ -191,7 +215,7 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
             pluginAssetPath: $assetPath
         );
 
-        // â”€â”€ Assign vars to Smarty & fetch template â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        // --- Assign vars to Smarty & fetch template ------------------
         $templateMgr->assign($widget->getTemplateVars());
 
         return $templateMgr->fetch($this->getTemplateResource('sidebar.tpl'));
