@@ -134,37 +134,28 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
                     return new JSONMessage(false, 'Scholar ID is required for sync.');
                 }
                 
-                if (!function_exists('shell_exec')) {
-                    return new JSONMessage(false, 'Sync failed: shell_exec function is disabled on your live server. Please contact your hosting provider or use manual update.');
-                }
-                
-                $pluginDir = $this->getPluginPath();
-                $pythonScript = realpath($pluginDir . '/updater/updater.py');
-                
                 $jsonPath = !empty($customPath)
                     ? $customPath
-                    : realpath($pluginDir . '/cache') . '/citations.json';
+                    : realpath($this->getPluginPath() . '/cache') . '/citations.json';
                     
-                $cmd = "python " . escapeshellarg($pythonScript) . " --id " . escapeshellarg($scholarId) . " --output " . escapeshellarg($jsonPath) . " 2>&1";
-                $output = (string) @shell_exec($cmd);
+                $data = $this->_scrapeScholar($scholarId);
                 
-                // Fallback to python3 if python is not found
-                if (empty(trim($output)) || stripos($output, 'not found') !== false || stripos($output, 'not recognized') !== false) {
-                    $cmd3 = "python3 " . escapeshellarg($pythonScript) . " --id " . escapeshellarg($scholarId) . " --output " . escapeshellarg($jsonPath) . " 2>&1";
-                    $output = (string) @shell_exec($cmd3) ?: $output;
-                }
-                
-                if (strpos($output, 'Update complete') !== false) {
-                    // Clear OJS caches so the updated sidebar is shown immediately
-                    $templateMgr = \APP\template\TemplateManager::getManager($request);
-                    $templateMgr->clearTemplateCache();
-                    
-                    $cacheManager = \PKP\cache\CacheManager::getManager();
-                    $cacheManager->flush();
-                    
-                    return new JSONMessage(true, 'Data synchronized successfully!');
+                if ($data !== false) {
+                    $jsonContent = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+                    if (file_put_contents($jsonPath, $jsonContent) !== false) {
+                        // Clear OJS caches so the updated sidebar is shown immediately
+                        $templateMgr = \APP\template\TemplateManager::getManager($request);
+                        $templateMgr->clearTemplateCache();
+                        
+                        $cacheManager = \PKP\cache\CacheManager::getManager();
+                        $cacheManager->flush();
+                        
+                        return new JSONMessage(true, 'Data synchronized successfully!');
+                    } else {
+                        return new JSONMessage(false, 'Sync failed: Cannot write to file ' . $jsonPath . '. Please check folder permissions.');
+                    }
                 } else {
-                    return new JSONMessage(false, 'Sync failed: ' . ($output ?: 'Python command failed or is not available.'));
+                    return new JSONMessage(false, 'Sync failed: Could not fetch data from Google Scholar. Profile might be private or blocked by CAPTCHA.');
                 }
 
             case 'settings':
@@ -242,6 +233,68 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
         $templateMgr->assign($widget->getTemplateVars());
 
         return $templateMgr->fetch($this->getTemplateResource('sidebar.tpl'));
+    }
+
+    /**
+     * Scrape Google Scholar profile data directly via PHP
+     *
+     * @param string $scholarId
+     * @return array|false Returns the parsed array or false on failure
+     */
+    private function _scrapeScholar($scholarId)
+    {
+        $url = 'https://scholar.google.com/citations?user=' . urlencode($scholarId) . '&hl=en';
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        $html = curl_exec($ch);
+        curl_close($ch);
+
+        if (!$html) return false;
+
+        $doc = new \DOMDocument();
+        @$doc->loadHTML($html);
+        $xpath = new \DOMXPath($doc);
+
+        $nameNode = $xpath->query('//div[@id="gsc_prf_in"]');
+        $name = $nameNode->length > 0 ? trim($nameNode->item(0)->textContent) : '';
+
+        // If the name is empty, it means the page structure was not found (maybe blocked)
+        if (empty($name)) return false;
+
+        $metrics = ['citations' => 0, 'hindex' => 0, 'i10index' => 0];
+        $statsNodes = $xpath->query('//td[@class="gsc_rsb_std"]');
+        if ($statsNodes->length >= 6) {
+            $metrics['citations'] = (int) $statsNodes->item(0)->textContent;
+            $metrics['hindex'] = (int) $statsNodes->item(2)->textContent;
+            $metrics['i10index'] = (int) $statsNodes->item(4)->textContent;
+        }
+
+        $chart = [];
+        $yearsNodes = $xpath->query('//span[@class="gsc_g_t"]');
+        $citesNodes = $xpath->query('//span[@class="gsc_g_al"]');
+        for ($i = 0; $i < $yearsNodes->length; $i++) {
+            $chart[] = [
+                'year' => (int) trim($yearsNodes->item($i)->textContent),
+                'citations' => (int) trim($citesNodes->item($i)->textContent)
+            ];
+        }
+
+        return [
+            'profile' => [
+                'name' => $name,
+                'scholarId' => $scholarId,
+                'url' => $url
+            ],
+            'metrics' => $metrics,
+            'chart' => $chart,
+            'updated' => date('Y-m-d H:i:s'),
+            'generator' => 'ScholarUpdater (PHP)'
+        ];
     }
 }
 
