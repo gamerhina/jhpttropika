@@ -12,18 +12,21 @@
 
 		$('#syncNowButton').click(function(e) {ldelim}
 			e.preventDefault();
-			var scholarId = $('input[name="scholarId"]').val();
-			var jsonPath = $('input[name="jsonFileLocation"]').val();
+			var $btn = $(this);
+			var originalText = $btn.text();
+			
+			var $form = $(this).closest('form');
+			var scholarId = $form.find('input[id$="scholarId"], input[name$="scholarId"]').val();
+			var jsonPath = $form.find('input[id$="jsonFileLocation"], input[name$="jsonFileLocation"]').val();
+			
 			if (!scholarId) {ldelim}
 				alert('Scholar ID is required');
 				return;
 			{rdelim}
 			
-			var $btn = $(this);
-			var originalText = $btn.text();
 			$btn.attr('disabled', true).text('Syncing...');
 			
-			$.post('{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="manage" category="blocks" plugin=$pluginName verb="sync"}', {ldelim}
+			$.post('{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="manage" category="blocks" plugin=$pluginName verb="sync" escape=false}', {ldelim}
 				scholarId: scholarId,
 				jsonPath: jsonPath,
 				csrfToken: $('input[name="csrfToken"]').val()
