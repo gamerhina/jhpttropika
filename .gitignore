@@ -1,8 +1,5 @@
-cache/*.php
-cache/t_cache/*
-cache/t_compile/*
-cache/t_config/*
-cache/opcache/*
+cache/*
+!cache/.gitkeep
 
 # Ignore root-level test and check scripts
 /test*.php
