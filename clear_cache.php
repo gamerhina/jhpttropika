@@ -14,29 +14,25 @@ $dbHost = trim($h[1] ?? 'localhost', "\r\n\t '\"");
 
 try {
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
-    
-    // Matikan HANYA plugin yang terbukti memperlambat PHP backend (bukan sekadar HTML block)
-    // Seringkali Crossref atau ExternalFeed melakukan koneksi Curl/HTTP di background
-    $pluginsToDisable = ['externalfeedplugin', 'crossrefplugin'];
+    $pluginsToDisable = ['externalfeedplugin', 'crossrefplugin', 'citationstylelanguageplugin', 'dataciteplugin'];
     foreach ($pluginsToDisable as $pluginName) {
         $stmt = $pdo->prepare("UPDATE plugin_settings SET setting_value = '0' WHERE plugin_name = ? AND setting_name = 'enabled'");
         $stmt->execute([$pluginName]);
     }
-    
-    echo "Membersihkan SELURUH Cache OJS secara total (agar perubahan berdampak ke Sidebar)...\n";
-    
-    $dirs = ['cache/', 'cache/t_cache/', 'cache/t_compile/'];
-    foreach($dirs as $dir) {
-        $files = glob($dir . '*.php');
-        foreach($files as $file) {
-            if(is_file($file) && basename($file) != 'index.php') {
-                unlink($file);
-            }
+} catch (Exception $e) {
+    echo "Info: Konfigurasi DB berbeda, melanjutkan pembersihan cache...\n";
+}
+
+echo "Membersihkan SELURUH Cache OJS secara total (agar perubahan berdampak ke Sidebar)...\n";
+
+$dirs = ['cache/', 'cache/t_cache/', 'cache/t_compile/'];
+foreach($dirs as $dir) {
+    $files = glob($dir . '*.php');
+    foreach($files as $file) {
+        if(is_file($file) && basename($file) != 'index.php') {
+            unlink($file);
         }
     }
-    echo "Cache berhasil dibersihkan total!\n";
-    echo "Silakan refresh halaman artikel Anda. (Refresh pertama akan butuh 15 detik, refresh kedua harusnya kilat).";
-    
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
 }
+echo "Cache berhasil dibersihkan total!\n";
+echo "Silakan refresh halaman artikel Anda. (Refresh pertama akan butuh 15 detik, refresh kedua harusnya kilat).";
