@@ -25,12 +25,12 @@ $pluginsToDisable = [
 try {
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     
-    echo "Menghidupkan kembali plugin eksternal...\n";
+    echo "Mematikan plugin eksternal yang sering membuat lambat (timeout)...\n";
     
     foreach ($pluginsToDisable as $pluginName) {
-        $stmt = $pdo->prepare("UPDATE plugin_settings SET setting_value = '1' WHERE plugin_name = ? AND setting_name = 'enabled'");
+        $stmt = $pdo->prepare("UPDATE plugin_settings SET setting_value = '0' WHERE plugin_name = ? AND setting_name = 'enabled'");
         $stmt->execute([$pluginName]);
-        echo "- Plugin $pluginName diaktifkan kembali.\n";
+        echo "- Plugin $pluginName dinonaktifkan.\n";
     }
     
     // Clear template cache files roughly
