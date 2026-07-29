@@ -136,7 +136,13 @@ class Hook
         ksort($hooks[$hookName], SORT_NUMERIC);
         foreach ($hooks[$hookName] as $priority => $hookList) {
             foreach ($hookList as $callback) {
-                if (call_user_func_array($callback, array_merge([$hookName], $args)) === self::ABORT) {
+                $tStart = microtime(true);
+                $result = call_user_func_array($callback, array_merge([$hookName], $args));
+                $tEnd = microtime(true);
+                if (($tEnd - $tStart) > 1.0) {
+                    file_put_contents('profile_slow.log', date('Y-m-d H:i:s') . " - Hook $hookName took " . round($tEnd - $tStart, 4) . " seconds\n", FILE_APPEND);
+                }
+                if ($result === self::ABORT) {
                     return self::ABORT;
                 }
             }
