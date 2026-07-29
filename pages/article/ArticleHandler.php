@@ -304,8 +304,7 @@ class ArticleHandler extends Handler
         }
         $logProfile("After citations");
 
-        // Assign deprecated values to the template manager for
-        // compatibility with older themes
+        $logProfile("Before assign deprecated");
         $templateMgr->assign([
             'licenseTerms' => $context->getLocalizedData('licenseTerms'),
             'licenseUrl' => $publication->getData('licenseUrl'),
@@ -314,35 +313,31 @@ class ArticleHandler extends Handler
             'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
             'keywords' => $publication->getData('keywords'),
         ]);
+        $logProfile("After assign deprecated");
 
-        // Fetch and assign the galley to the template
         if ($this->galley && $this->galley->getRemoteURL()) {
             $request->redirectUrl($this->galley->getRemoteURL());
         }
 
         if (empty($this->galley)) {
-            // No galley: Prepare the article landing page.
-
-            // Ask robots not to index outdated versions and point to the canonical url for the latest version
+            $logProfile("Before issueAction");
             if ($publication->getId() !== $article->getCurrentPublication()->getId()) {
                 $templateMgr->addHeader('noindex', '<meta name="robots" content="noindex">');
                 $url = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'article', 'view', $article->getBestId());
                 $templateMgr->addHeader('canonical', '<link rel="canonical" href="' . $url . '">');
             }
 
-            // Get the subscription status if displaying the abstract;
-            // if access is open, we can display links to the full text.
-
-            // The issue may not exist, if this is an editorial user
-            // and scheduling hasn't been completed yet for the article.
             $issueAction = new IssueAction();
             $subscriptionRequired = false;
             if ($issue) {
                 $subscriptionRequired = $issueAction->subscriptionRequired($issue, $context);
             }
+            $logProfile("After subscriptionRequired");
 
             $subscribedUser = $issueAction->subscribedUser($user, $context, isset($issue) ? $issue->getId() : null, isset($article) ? $article->getId() : null);
+            $logProfile("After subscribedUser");
             $subscribedDomain = $issueAction->subscribedDomain($request, $context, isset($issue) ? $issue->getId() : null, isset($article) ? $article->getId() : null);
+            $logProfile("After subscribedDomain");
 
             $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO'); /** @var OJSCompletedPaymentDAO $completedPaymentDao */
             $templateMgr->assign(
@@ -353,6 +348,7 @@ class ArticleHandler extends Handler
                 ($user && $issue && $completedPaymentDao->hasPaidPurchaseIssue($user->getId(), $issue->getId())) ||
                 ($user && $completedPaymentDao->hasPaidPurchaseArticle($user->getId(), $article->getId()))
             );
+            $logProfile("After payment check");
 
             $paymentManager = Application::get()->getPaymentManager($context);
             if ($paymentManager->onlyPdfEnabled()) {
@@ -362,6 +358,7 @@ class ArticleHandler extends Handler
                 $templateMgr->assign('purchaseArticleEnabled', true);
             }
 
+            $logProfile("Before Hook::call ArticleHandler::view");
             if (!Hook::call('ArticleHandler::view', [&$request, &$issue, &$article, $publication])) {
                 $logProfile("Before TemplateManager::display()");
                 $templateMgr->display('frontend/pages/article.tpl');
