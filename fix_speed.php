@@ -1,6 +1,18 @@
 <?php
-$config = parse_ini_file('config.inc.php', true);
-$db = $config['database'];
+$configContent = file_get_contents('config.inc.php');
+// Ambil blok [database]
+preg_match('/\[database\](.*?)\[/s', $configContent, $dbBlockMatch);
+$dbBlock = $dbBlockMatch[1] ?? $configContent;
+
+preg_match('/^username\s*=\s*(.*?)$/m', $dbBlock, $u);
+preg_match('/^password\s*=\s*(.*?)$/m', $dbBlock, $p);
+preg_match('/^name\s*=\s*(.*?)$/m', $dbBlock, $n);
+preg_match('/^host\s*=\s*(.*?)$/m', $dbBlock, $h);
+
+$dbUser = trim($u[1] ?? '', "\r\n\t '\"");
+$dbPass = trim($p[1] ?? '', "\r\n\t '\"");
+$dbName = trim($n[1] ?? '', "\r\n\t '\"");
+$dbHost = trim($h[1] ?? 'localhost', "\r\n\t '\"");
 
 $pluginsToDisable = [
     'externalfeedplugin',
@@ -11,7 +23,7 @@ $pluginsToDisable = [
 ];
 
 try {
-    $pdo = new PDO("mysql:host=127.0.0.1;dbname=" . $db['name'], $db['username'], $db['password']);
+    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     
     echo "Mematikan plugin eksternal yang sering membuat lambat (timeout)...\n";
     
