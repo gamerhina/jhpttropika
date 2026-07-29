@@ -14,7 +14,7 @@ $dbHost = trim($h[1] ?? 'localhost', "\r\n\t '\"");
 
 try {
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
-    $pluginsToDisable = ['externalfeedplugin', 'crossrefplugin', 'citationstylelanguageplugin', 'dataciteplugin'];
+    $pluginsToDisable = ['externalfeedplugin', 'crossrefplugin', 'citationstylelanguageplugin', 'dataciteplugin', 'acronplugin', 'resolverplugin'];
     foreach ($pluginsToDisable as $pluginName) {
         $stmt = $pdo->prepare("UPDATE plugin_settings SET setting_value = '0' WHERE plugin_name = ? AND setting_name = 'enabled'");
         $stmt->execute([$pluginName]);
