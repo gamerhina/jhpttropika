@@ -496,8 +496,9 @@ class PKPRequest
     {
         static $remoteDomain;
         if (!isset($remoteDomain)) {
-            $remoteDomain = null;
-            $remoteDomain = @getHostByAddr($this->getRemoteAddr());
+            // FIX: getHostByAddr causes 12-second DNS timeout on some servers.
+            // OJS only uses this for institutional subscriptions by domain.
+            $remoteDomain = $this->getRemoteAddr();
             Hook::call('Request::getRemoteDomain', [&$remoteDomain]);
         }
         return $remoteDomain;
