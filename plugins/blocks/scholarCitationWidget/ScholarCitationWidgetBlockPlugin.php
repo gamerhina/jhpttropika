@@ -134,6 +134,10 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
                     return new JSONMessage(false, 'Scholar ID is required for sync.');
                 }
                 
+                if (!function_exists('shell_exec')) {
+                    return new JSONMessage(false, 'Sync failed: shell_exec function is disabled on your live server. Please contact your hosting provider or use manual update.');
+                }
+                
                 $pluginDir = $this->getPluginPath();
                 $pythonScript = realpath($pluginDir . '/updater/updater.py');
                 
@@ -142,7 +146,13 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
                     : realpath($pluginDir . '/cache') . '/citations.json';
                     
                 $cmd = "python " . escapeshellarg($pythonScript) . " --id " . escapeshellarg($scholarId) . " --output " . escapeshellarg($jsonPath) . " 2>&1";
-                $output = (string) shell_exec($cmd);
+                $output = (string) @shell_exec($cmd);
+                
+                // Fallback to python3 if python is not found
+                if (empty(trim($output)) || stripos($output, 'not found') !== false || stripos($output, 'not recognized') !== false) {
+                    $cmd3 = "python3 " . escapeshellarg($pythonScript) . " --id " . escapeshellarg($scholarId) . " --output " . escapeshellarg($jsonPath) . " 2>&1";
+                    $output = (string) @shell_exec($cmd3) ?: $output;
+                }
                 
                 if (strpos($output, 'Update complete') !== false) {
                     // Clear OJS caches so the updated sidebar is shown immediately
