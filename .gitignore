@@ -1,10 +1,15 @@
 cache/*
 !cache/.gitkeep
 
-# Ignore root-level test and check scripts
+# Ignore root-level test and debug scripts
 /test*.php
 /*test.php
 /check*.php
+/fix_*.php
+/clear_cache.php
+/enable_plugins.php
+/profile_*.log
+/time_log.txt
 
 # Ignore configuration files
 config.inc*
