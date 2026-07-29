@@ -12,8 +12,8 @@
 
 		$('#syncNowButton').click(function(e) {ldelim}
 			e.preventDefault();
-			var scholarId = $('#scholarId').val();
-			var jsonPath = $('#jsonFileLocation').val();
+			var scholarId = $('input[name="scholarId"]').val();
+			var jsonPath = $('input[name="jsonFileLocation"]').val();
 			if (!scholarId) {ldelim}
 				alert('Scholar ID is required');
 				return;

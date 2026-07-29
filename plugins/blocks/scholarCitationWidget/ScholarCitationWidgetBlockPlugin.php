@@ -124,6 +124,12 @@ class ScholarCitationWidgetBlockPlugin extends BlockPlugin
                 $scholarId = $request->getUserVar('scholarId');
                 $customPath = $request->getUserVar('jsonPath');
                 
+                // Clean Scholar ID (remove everything after '&' in case user copied the URL params)
+                if (strpos($scholarId, '&') !== false) {
+                    $scholarId = explode('&', $scholarId)[0];
+                }
+                $scholarId = trim($scholarId);
+                
                 if (empty($scholarId)) {
                     return new JSONMessage(false, 'Scholar ID is required for sync.');
                 }
