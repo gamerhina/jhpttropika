@@ -207,6 +207,13 @@ class ArticleHandler extends Handler
      */
     public function view($args, $request)
     {
+        $timeStart = microtime(true);
+        $logProfile = function($msg) use ($timeStart) {
+            $time = microtime(true) - $timeStart;
+            file_put_contents('profile_article.log', date('Y-m-d H:i:s') . " - [+$time] $msg\n", FILE_APPEND);
+        };
+        $logProfile("Started ArticleHandler::view");
+
         $context = $request->getContext();
         $user = $request->getUser();
         $issue = $this->issue;
@@ -242,6 +249,7 @@ class ArticleHandler extends Handler
             fatalError('Cannot view galley.');
         }
 
+        $logProfile("Before getting categories");
         $templateMgr->assign([
             'categories' => Repo::category()->getCollector()
                 ->filterByPublicationIds([$publication->getId()])
@@ -249,6 +257,7 @@ class ArticleHandler extends Handler
                 ->toArray()
         ]);
 
+        $logProfile("Before processing galleys");
         // Get galleys sorted into primary and supplementary groups
         $galleys = $publication->getData('galleys');
 
@@ -284,6 +293,7 @@ class ArticleHandler extends Handler
             'userGroupsById' => Repo::userGroup()->getCollector()->filterByPublicationIds([$this->publication->getId()])->getMany()->toArray()
         ]);
 
+        $logProfile("Before citations");
         // Citations
         if ($publication->getData('citationsRaw')) {
             $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
@@ -292,6 +302,7 @@ class ArticleHandler extends Handler
                 'parsedCitations' => $parsedCitations->toArray(),
             ]);
         }
+        $logProfile("After citations");
 
         // Assign deprecated values to the template manager for
         // compatibility with older themes
@@ -352,8 +363,11 @@ class ArticleHandler extends Handler
             }
 
             if (!Hook::call('ArticleHandler::view', [&$request, &$issue, &$article, $publication])) {
+                $logProfile("Before TemplateManager::display()");
                 $templateMgr->display('frontend/pages/article.tpl');
+                $logProfile("After TemplateManager::display()");
                 event(new UsageEvent(Application::ASSOC_TYPE_SUBMISSION, $context, $article, null, null, $this->issue));
+                $logProfile("After UsageEvent");
                 return;
             }
         } else {
