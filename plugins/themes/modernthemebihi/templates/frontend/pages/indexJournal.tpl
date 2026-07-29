@@ -83,9 +83,7 @@
 									{foreach name=sections from=$publishedSubmissions item=section}
 										{if $section.articles}
 											{foreach from=$section.articles item=article name=article}
-												{if $smarty.foreach.article.index == 5}
-													{break}
-												{/if}
+
 												{include file="frontend/objects/article_slideshow_index_journal.tpl"}
 											{/foreach}
 										{/if}
@@ -118,9 +116,7 @@
 							</div>
 							<div class="row">
 								{foreach from=$section.articles item=article name=article}
-									{if $smarty.foreach.article.index == 5}
-										{break}
-									{/if}
+
 									{include file="frontend/objects/article_summary_index_journal.tpl"}
 								{/foreach}
 							</div>
