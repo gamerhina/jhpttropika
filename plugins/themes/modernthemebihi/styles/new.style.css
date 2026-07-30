@@ -818,3 +818,18 @@ margin: 10px 0;
     opacity: 1;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
+/* Fix for invisible checkboxes on PKP forms */
+.pkp_form input[type="checkbox"],
+.pkp_form input[type="radio"] {
+    position: static !important;
+    left: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    margin-right: 5px;
+    width: auto !important;
+    height: auto !important;
+    clip: auto !important;
+}
+
